@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>총장 인사말 | GTCC</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div data-include="assets/partials/header.html"></div>
+    <main class="content-page">
+        <section class="page-hero">
+            <div class="container">
+                <span class="page-category">총장실</span>
+                <h1>총장 인사말</h1>
+                <p>학생과 지역사회가 함께 성장하는 GTCC의 미래 비전을 확인해 보세요.</p>
+            </div>
+        </section>
+        <section class="page-body">
+            <div class="container container--profile">
+                <div class="profile-layout">
+                    <aside class="profile-card" aria-label="총장 소개">
+                        <figure class="profile-card__photo">
+                            <img src="assets/picture/조나.jpg"/>
+                        </figure>
+                        <div class="profile-card__body">
+                            <p class="profile-card__role">GTCC 총장</p>
+                            <p class="profile-card__name">KIM JONALYN</p>
+                            <p class="profile-card__quote">“학생의 성장을 돕는 가장 따뜻한 디지털 캠퍼스를 만들겠습니다.”</p>
+                        </div>
+                        <div class="profile-card__meta">
+                            <dl>
+                                <div>
+                                    <dt>전공</dt>
+                                    <dd>영어 교육학 박사</dd>
+                                </div>
+                                <div>
+                                    <dt>주요 이력</dt>
+                                    <dd>GTCC 혁신전략본부장 / 글로벌 원격교육 협의회 의장</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </aside>
+                    <article class="profile-content">
+                        <h2>미래 교육을 향한 든든한 동반자</h2>
+                        <p class="lead">GTCC는 디지털 전환의 흐름 속에서도 사람 중심의 가치를 잃지 않는 교육을 실현하고 있습니다. 총장실은 학생의 꿈과 커리어가 현실이 될 수 있도록 학습 설계부터 지원 제도까지 촘촘히 마련하고 있습니다.</p>
+                        <p>우리는 데이터 기반 학사,석사,박사 관리와 교수학습 지원 체계를 통해 학습자가 스스로 학습 목표를 설계하고 성취할 수 있도록 돕습니다. 또한, 지역과 세계를 잇는 산학 네트워크를 통해 실제 현장과 연결된 경험을 제공하고 있습니다.</p>
+                        <p>GTCC는 앞으로도 모두에게 열려 있는 캠퍼스로서 혁신과 배려를 실천해 나가겠습니다. 여러분의 도전이 곧 우리의 자랑이 되도록 늘 곁에서 함께하겠습니다.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="page-detail">
+            <div class="container container--profile">
+                <h2>총장이 전하는 핵심 메시지</h2>
+                <div class="detail-grid">
+                    <section class="detail-card">
+                        <h3>학생 성공을 위한 맞춤 지원</h3>
+                        <p>학습 데이터 분석과 정기적인 코칭을 통해 학습자가 원하는 경로를 설계하고, 성취 경험을 확장할 수 있도록 돕습니다.</p>
+                        <ul>
+                            <li>AI 기반 학업 코칭과 학습 진단 서비스</li>
+                            <li>프로젝트형 수업과 캡스톤 디자인 강화</li>
+                            <li>동문 멘토링과 커리어 매칭 프로그램 운영</li>
+                        </ul>
+                    </section>
+                    <section class="detail-card">
+                        <h3>지속 가능한 캠퍼스 구축</h3>
+                        <p>친환경 인프라와 사회공헌 활동을 결합해 지역사회와 함께 성장하는 지속 가능한 대학 모델을 만들어가고 있습니다.</p>
+                        <ul>
+                            <li>탄소중립 목표 달성을 위한 디지털 캠페인</li>
+                            <li>지역 연계 재능 기부 및 봉사 프로그램</li>
+                            <li>글로벌 파트너와의 공동 연구 프로젝트</li>
+                        </ul>
+                    </section>
+                   <section class="detail-card">
+                        <h3>국제적 캠퍼스 구축</h3>
+                        <p>GTCC Cyber College 를 전세계 지역 학습관을 만들어 전세계 모든 학생들에게 교육 가능한 대학 모델을 만들어가고 있습니다.</p>
+                        <ul>
+                            <li>1차 한국 캠퍼스구축</li>
+                            <li>2차 나이지리아 캠퍼스구축</li>
+                            <li>3차 베트남 캠퍼스구축</li>
+                        </ul>
+                    </section> 
+                </div>
+            </div>
+        </section>
+    </main>
+    <div data-include="assets/partials/footer.html"></div>
+
+    <script src="assets/js/includes.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
