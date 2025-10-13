@@ -2020,8 +2020,11 @@ body.theme-dark .dark-mode-toggle {
     border-radius: 1.25rem;
     border: 1px solid var(--border);
     background: var(--white);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .news-card .tag {
