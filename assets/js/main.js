@@ -200,7 +200,54 @@ const initialize = () => {
         window.localStorage.setItem('preferred-theme', theme);
     };
 
+    const setupAdmissionConsultationForm = () => {
+        const form = document.getElementById('admission-consultation-form');
+        if (!form) {
+            return;
+        }
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const name = String(formData.get('name') || '').trim();
+            const phone = String(formData.get('phone') || '').trim();
+            const date = String(formData.get('date') || '').trim();
+
+            if (!name || !phone || !date) {
+                if (typeof form.reportValidity === 'function') {
+                    form.reportValidity();
+                }
+                return;
+            }
+
+            const parsedDate = new Date(date);
+            const formattedDate = Number.isNaN(parsedDate.getTime())
+                ? date
+                : parsedDate.toLocaleDateString('ko-KR');
+
+            const recipient = 'gtcccybercollege@gmail.com';
+            const subject = encodeURIComponent('[GTCC Admissions] 상담 예약 신청');
+            const bodyLines = [
+                '다음과 같이 상담 예약 신청이 접수되었습니다.',
+                '',
+                `이름: ${name}`,
+                `연락처: ${phone}`,
+                `상담 희망일: ${formattedDate}`,
+            ];
+            const body = encodeURIComponent(bodyLines.join('\n'));
+            const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+            window.location.href = mailtoLink;
+
+            window.setTimeout(() => {
+                form.reset();
+            }, 100);
+        });
+    };
+
     setupMegaMenuForTouch();
+    setupAdmissionConsultationForm();
 
     const slider = document.querySelector('[data-hero-slider]');
 
