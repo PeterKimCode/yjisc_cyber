@@ -220,16 +220,6 @@ const initialize = () => {
 
             let autoplayId = null;
 
-            const updateHeight = () => {
-                const activeSlide = slides[currentIndex];
-                if (!activeSlide) {
-                    return;
-                }
-
-                const newHeight = `${activeSlide.offsetHeight}px`;
-                track.style.height = newHeight;
-            };
-
             const setActive = (index) => {
                 const targetIndex = (index + slides.length) % slides.length;
                 slides.forEach((slide, idx) => {
@@ -250,7 +240,6 @@ const initialize = () => {
                 });
 
                 currentIndex = targetIndex;
-                updateHeight();
             };
 
             const goTo = (index) => {
@@ -328,13 +317,6 @@ const initialize = () => {
 
             setActive(currentIndex);
             startAutoplay();
-            updateHeight();
-
-            window.addEventListener('resize', () => {
-                window.requestAnimationFrame(updateHeight);
-            });
-
-            window.addEventListener('load', updateHeight);
         }
     }
 
