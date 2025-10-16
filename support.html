@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>지원 센터</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg-color: #f5f7fb;
+      --card-bg: #ffffff;
+      --accent: #2f7bff;
+      --text: #1c1c1c;
+      --muted: #5f6b7c;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #101320;
+        --card-bg: #151a2b;
+        --accent: #4a8dff;
+        --text: #f8f9ff;
+        --muted: #b2b8c7;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    p.lead {
+      margin: 0 auto;
+      max-width: 620px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      border-radius: 24px;
+      background: var(--card-bg);
+      box-shadow: 0 24px 48px rgba(20, 37, 79, 0.12);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -60% -20%;
+      background: radial-gradient(circle at top right, rgba(47, 123, 255, 0.25), transparent 55%);
+      pointer-events: none;
+    }
+
+    .highlight-card header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      align-self: flex-start;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(47, 123, 255, 0.12);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .highlight-card h2 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .highlight-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .highlight-benefits {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .highlight-benefits li {
+      list-style: none;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(47, 123, 255, 0.08);
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .highlight-benefits li span {
+      background: rgba(47, 123, 255, 0.16);
+      color: var(--accent);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    .support-cta {
+      gap: 32px;
+    }
+
+    .support-cta h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .support-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .support-option {
+      border-radius: 20px;
+      padding: 24px;
+      background: var(--card-bg);
+      box-shadow: 0 16px 32px rgba(20, 37, 79, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .support-option strong {
+      font-size: 18px;
+    }
+
+    .support-option p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .support-option a {
+      align-self: flex-start;
+      margin-top: auto;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .support-option a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 32px 24px;
+      }
+
+      .support-option {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>도움이 필요하신가요?</h1>
+      <p class="lead">지원팀이 언제나 준비되어 있습니다. 빠른 해결을 위해 아래 안내를 확인하거나, 적합한 채널을 선택해 주세요.</p>
+    </header>
+
+    <section class="highlight-card card">
+      <header>
+        <span class="badge">Support Highlight</span>
+        <h2>맞춤형 지원으로 빠른 해결</h2>
+        <p>문제 상황을 간편하게 공유하면 담당자가 배정되어 단계별 해결 방법을 안내해 드립니다. 긴급한 사안은 1시간 이내에 응대해요.</p>
+      </header>
+      <ul class="highlight-benefits">
+        <li><span>01</span>24시간 긴급 대응</li>
+        <li><span>02</span>문제 유형별 전문가 매칭</li>
+        <li><span>03</span>원격 지원 &amp; 라이브 세션</li>
+        <li><span>04</span>이슈 추적 및 히스토리 기록</li>
+      </ul>
+    </section>
+
+    <section class="support-cta">
+      <div>
+        <h2>원하는 방법으로 지원을 요청하세요</h2>
+        <p class="lead">복잡한 테이블 대신 직관적인 카드형 인터페이스로 각각의 지원 채널을 빠르게 확인할 수 있습니다.</p>
+      </div>
+      <div class="support-options">
+        <div class="support-option">
+          <strong>이메일 문의</strong>
+          <p>일반적인 문의나 상세한 설명이 필요한 경우 이메일을 통해 문제를 공유해 주세요.</p>
+          <a href="mailto:support@example.com">support@example.com</a>
+        </div>
+        <div class="support-option">
+          <strong>라이브 챗</strong>
+          <p>실시간 상담원이 기다리고 있습니다. 간단한 질문부터 긴급한 이슈까지 빠르게 해결하세요.</p>
+          <a href="#">라이브 챗 시작하기 →</a>
+        </div>
+        <div class="support-option">
+          <strong>전문가 예약</strong>
+          <p>심층적인 지원이 필요한 경우 전문가와의 원격 세션을 예약할 수 있습니다.</p>
+          <a href="#">상담 일정 확인하기 →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Cyber Support. All rights reserved.
+    </footer>
+  </main>
+</body>
+</html>
