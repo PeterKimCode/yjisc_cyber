@@ -2327,13 +2327,12 @@ body.theme-dark .dark-mode-toggle {
     margin: 0;
 }
 
-.footer-brand {
-    display: block;
+.footer-info h3 {
+    margin: 0 0 0.75rem;
     font-size: 1.25rem;
     letter-spacing: 0.14em;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.75rem;
 }
 
 .footer-links ul {
