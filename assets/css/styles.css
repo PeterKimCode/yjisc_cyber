@@ -2380,15 +2380,7 @@ body.theme-dark .dark-mode-toggle {
 }
 
 .footer-links a::before {
-    content: '\203A';
-    font-size: 1rem;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.55);
-}
-
-.footer-links a:hover::before,
-.footer-links a:focus::before {
-    color: #fff;
+    display: none;
 }
 
 .footer-links h3 {
