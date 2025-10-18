@@ -2217,11 +2217,17 @@ body.theme-dark .dark-mode-toggle {
     font-weight: 600;
 }
 
+.stat-card__logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem;
+}
+
 .stat-card__logo {
     width: 3rem;
     height: 3rem;
     object-fit: contain;
-    margin: 0 auto 0.75rem;
     display: block;
 }
 
