@@ -1887,6 +1887,16 @@ body.theme-dark .dark-mode-toggle {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.program-grid.department-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.program-grid.department-grid .department-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+}
+
 .program-card__content {
     display: flex;
     flex-direction: column;
