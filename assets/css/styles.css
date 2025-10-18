@@ -1907,6 +1907,12 @@ body.theme-dark .dark-mode-toggle {
     gap: 1.25rem;
 }
 
+.program-grid.program-grid--stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 .program-card__content {
     display: flex;
     flex-direction: column;
