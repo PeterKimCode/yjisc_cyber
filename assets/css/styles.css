@@ -2337,11 +2337,27 @@ body.theme-dark .dark-mode-toggle {
 }
 
 .footer-top {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.67rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     margin-bottom: 1.67rem;
-    align-items: start;
+    align-items: flex-start;
+}
+
+.footer-links {
+    flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-links:first-child {
+        flex: 1 1 50%;
+    }
+
+    .footer-links:nth-child(2),
+    .footer-links:nth-child(3) {
+        flex: 1 1 25%;
+        max-width: 25%;
+    }
 }
 
 .footer-info {
