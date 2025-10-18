@@ -1676,6 +1676,11 @@ body.theme-dark .dark-mode-toggle {
     padding-bottom: 0;
 }
 
+#departments .section-heading {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
 .section-heading {
     display: flex;
     justify-content: space-between;
