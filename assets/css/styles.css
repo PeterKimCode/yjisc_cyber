@@ -1667,6 +1667,10 @@ body.theme-dark .dark-mode-toggle {
     color: var(--muted);
 }
 
+.program-grid.department-grid .department-card:last-of-type {
+    padding-bottom: 19.92px;
+}
+
 .section {
     padding: 4rem 0;
 }
