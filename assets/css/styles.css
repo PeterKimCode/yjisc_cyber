@@ -1897,6 +1897,16 @@ body.theme-dark .dark-mode-toggle {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.program-grid.program-grid--two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+    .program-grid.program-grid--two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
 .program-grid.department-grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
