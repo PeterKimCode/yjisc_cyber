@@ -2028,6 +2028,26 @@ body.theme-dark .dark-mode-toggle {
     justify-content: flex-start;
 }
 
+#news .news-card {
+    padding: 0.8rem;
+    gap: 0.5rem;
+}
+
+#news .news-card h3 {
+    font-size: 1.05rem;
+}
+
+#news .news-card time,
+#news .news-card p,
+#news .news-card li {
+    font-size: 0.9rem;
+}
+
+#news .feature-list {
+    margin: 0.75rem 0 0;
+    gap: 0.5rem;
+}
+
 .news-card .tag {
     font-size: 0.75rem;
     font-weight: 700;
