@@ -96,6 +96,7 @@ body {
 
 .top-bar a:hover,
 .top-bar a:focus {
+    color: inherit;
     text-decoration: underline;
 }
 
