@@ -1,6 +1,26 @@
 (() => {
     const INCLUDE_ATTR = 'data-include';
 
+    const ensureFavicon = () => {
+        const head = document.head;
+        if (!head) {
+            return;
+        }
+
+        const hasFavicon = head.querySelector('link[rel~="icon"]');
+        if (hasFavicon) {
+            return;
+        }
+
+        const faviconLink = document.createElement('link');
+        faviconLink.setAttribute('rel', 'icon');
+        faviconLink.setAttribute('type', 'image/png');
+        faviconLink.setAttribute('href', 'assets/icons/gtcc.png');
+        head.appendChild(faviconLink);
+    };
+
+    ensureFavicon();
+
     const loadIncludes = async () => {
         const elements = Array.from(document.querySelectorAll(`[${INCLUDE_ATTR}]`));
 
