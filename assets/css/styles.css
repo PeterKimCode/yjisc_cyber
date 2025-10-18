@@ -2250,11 +2250,43 @@ body.theme-dark .dark-mode-toggle {
     padding: 2rem 0 1.33rem;
 }
 
+.site-footer a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+    color: #fff;
+}
+
 .footer-top {
     display: grid;
     gap: 1.67rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     margin-bottom: 1.67rem;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.footer-info p {
+    margin: 0;
+}
+
+.footer-brand {
+    display: block;
+    font-size: 1.25rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
 }
 
 .footer-links ul {
@@ -2263,6 +2295,25 @@ body.theme-dark .dark-mode-toggle {
     margin: 0;
     display: grid;
     gap: 0.5rem;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 500;
+}
+
+.footer-links a::before {
+    content: '\203A';
+    font-size: 1rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-links a:hover::before,
+.footer-links a:focus::before {
+    color: #fff;
 }
 
 .footer-links h3 {
