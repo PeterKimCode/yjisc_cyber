@@ -2304,6 +2304,7 @@ body.theme-dark .dark-mode-toggle {
     gap: 1.67rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     margin-bottom: 1.67rem;
+    align-items: start;
 }
 
 .footer-info {
