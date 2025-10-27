@@ -1943,19 +1943,15 @@ body.theme-dark .dark-mode-toggle {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    display: flex;
-}
-
-.image-slider__slide {
-    align-items: stretch;
+    display: block;
+    background: #0d1835;
 }
 
 .image-slider__slide img {
-    flex: 1 1 auto;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    max-width: none;
-    min-height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
