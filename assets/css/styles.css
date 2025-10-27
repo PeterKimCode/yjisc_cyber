@@ -1942,14 +1942,21 @@ body.theme-dark .dark-mode-toggle {
     flex: 0 0 100%;
     height: 100%;
     margin: 0;
+    overflow: hidden;
+    display: flex;
 }
 
 .image-slider__slide img {
+    flex: 1 1 auto;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
+}
+
+.image-slider__slide.is-active img {
+    height: 100%;
 }
 
 .image-slider__caption {
