@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미용경영학과 | GTCC</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div data-include="assets/partials/header.html"></div>
 
+    <main>
+        <section class="department-hero">
+            <div class="container">
+                <div class="department-hero__layout">
+                    <div class="department-hero__summary">
+                        <span class="department-hero__label" aria-label="대학 과정">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3zm0 6.74l7.53-3.77L12 4.2 4.47 5.97 12 9.74zM21 10.5v3.75c0 2.5-4.03 6.25-9 6.25s-9-3.75-9-6.25V10.5l9 4.5 9-4.5z"/></svg>
+                            Undergraduate Program
+                        </span>
+                        <h1>경영학과</h1>
+                        <p>
+                            경영학과는 글로벌 비즈니스 환경에서 전략적으로 사고하고 실행할 수 있는 경영 리더를 양성합니다.
+                            데이터 기반 의사결정 능력과 스타트업/ESG 경영 역량을 함께 기릅니다.
+                        </p>
+                        <div class="department-meta">
+                            <span>학위과정: 학사(BBA)</span>
+                            <span>소속: 대학교</span>
+                            <span>표준수업연한: 4년</span>
+                        </div>
+                    </div>
+                </div>
+                <nav class="department-tabs" aria-label="경영학과 메뉴">
+                    <div class="department-tabs__list" role="tablist">
+                        <a class="is-active" id="tab-overview" role="tab" aria-controls="overview" aria-selected="true" href="#overview">학과소개</a>
+                        <a id="tab-curriculum" role="tab" aria-controls="curriculum" aria-selected="false" tabindex="-1" href="#curriculum">교과과정</a>
+                        <a id="tab-career" role="tab" aria-controls="career" aria-selected="false" tabindex="-1" href="#career">진로 및 진출</a>
+                        <a id="tab-support" role="tab" aria-controls="support" aria-selected="false" tabindex="-1" href="#support">학생지원</a>
+                        <a id="tab-faculty" role="tab" aria-controls="faculty" aria-selected="false" tabindex="-1" href="#faculty">교수진</a>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <section id="overview" class="department-section" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+            <div class="container department-layout department-layout--split">
+                <div>
+                    <h2>학과소개</h2>
+                    <p>
+                        경영 전략, 마케팅, 재무, 인사, 데이터 분석 등 핵심 경영 영역을 실무 중심으로 학습합니다.
+                        글로벌 기업과 스타트업의 사례를 통해 혁신적 문제 해결 능력을 기릅니다.
+                    </p>
+                    <div class="department-cta">
+                        <a class="btn primary" href="admissions.html">입학 상담 신청</a>
+                        <a class="btn ghost" href="support.html#guide">장학 · 등록 안내</a>
+                    </div>
+                </div>
+                <div>
+                    <ul class="department-list">
+                        <li>
+                            <h3 class="department-list__title">비즈니스 전략과 리더십</h3>
+                            <p class="department-list__subtitle">Business Strategy & Leadership</p>
+                            <p class="department-list__body">경영전략, 조직행동, 리더십 개발을 통해 글로벌 마켓을 이끄는 전략가로 성장합니다.</p>
+                        </li>
+                        <li>
+                            <h3 class="department-list__title">데이터 기반 경영</h3>
+                            <p class="department-list__subtitle">Data-driven Management</p>
+                            <p class="department-list__body">데이터 분석 도구와 BI 플랫폼을 활용해 시장 분석과 경영 의사결정을 지원합니다.</p>
+                        </li>
+                        <li>
+                            <h3 class="department-list__title">창업과 ESG 경영</h3>
+                            <p class="department-list__subtitle">Start-up & ESG Management</p>
+                            <p class="department-list__body">스타트업 프로젝트, ESG 경영 전략 수립을 통해 지속가능한 비즈니스 모델을 설계합니다.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum" class="department-section" role="tabpanel" aria-labelledby="tab-curriculum" tabindex="0">
+            <div class="container department-layout">
+                <div>
+                    <h2>교과과정 안내</h2>
+                    <p>
+                        경영 기초, 분석, 글로벌 전략, 창업/ESG 모듈로 구성되며 프로젝트 기반 학습을 강조합니다.
+                        기업 인턴십과 캡스톤 디자인을 통해 실전 능력을 강화합니다.
+                    </p>
+                </div>
+                <div class="department-cards">
+                    <article class="department-card">
+                        <h3>기초 영역</h3>
+                        <ul>
+                            <li>경영학원론</li>
+                            <li>회계원리</li>
+                            <li>경제학 기초</li>
+                        </ul>
+                    </article>
+                    <article class="department-card">
+                        <h3>심화 영역</h3>
+                        <ul>
+                            <li>마케팅 전략</li>
+                            <li>재무관리 &amp; 투자</li>
+                            <li>인사·조직 혁신</li>
+                        </ul>
+                    </article>
+                    <article class="department-card">
+                        <h3>현장 연계</h3>
+                        <ul>
+                            <li>기업 인턴십 &amp; 현장실습</li>
+                            <li>경영 캡스톤 디자인</li>
+                            <li>스타트업/ESG 프로젝트</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="career" class="department-section" role="tabpanel" aria-labelledby="tab-career" tabindex="0">
+            <div class="container department-layout">
+                <h2>진로 및 진출 분야</h2>
+                <p>
+                    마케팅/브랜드 매니저, 재무/회계 전문가, HR 매니저, 데이터 분석가, 스타트업 창업자 등으로 진출합니다.
+                    MBA, 경영학 대학원, 해외 비즈니스 스쿨 진학을 통한 경력 개발도 지원합니다.
+                </p>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <strong>기업 경영</strong>
+                        <p>국내외 기업 마케팅/재무/HR/전략 직무</p>
+                    </div>
+                    <div class="career-card">
+                        <strong>데이터/컨설팅</strong>
+                        <p>경영 컨설턴트, 데이터 애널리스트, BI 스페셜리스트</p>
+                    </div>
+                    <div class="career-card">
+                        <strong>창업/진학</strong>
+                        <p>MBA, 해외 경영대학원, 스타트업 창업 및 액셀러레이팅</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="department-section" role="tabpanel" aria-labelledby="tab-support" tabindex="0">
+            <div class="container department-layout department-layout--split">
+                <div>
+                    <h2>학생 지원 프로그램</h2>
+                    <p>
+                        취업 역량 강화 프로그램, 글로벌 교환, 창업 인큐베이터 등 실무 중심 지원을 제공합니다.
+                        기업 멘토링과 자격증 대비 특강으로 현장 경쟁력을 높입니다.
+                    </p>
+                </div>
+                <div class="department-cards">
+                    <article class="department-card">
+                        <h3>학사 지원</h3>
+                        <ul>
+                            <li>재무/회계 자격증 대비반</li>
+                            <li>데이터 분석 툴 워크숍</li>
+                            <li>취업 &amp; 창업 컨설팅</li>
+                        </ul>
+                    </article>
+                    <article class="department-card">
+                        <h3>비즈니스 커뮤니티</h3>
+                        <ul>
+                            <li>기업 멘토 네트워킹</li>
+                            <li>스타트업 해커톤</li>
+                            <li>글로벌 비즈니스 포럼</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="faculty" class="department-section" role="tabpanel" aria-labelledby="tab-faculty" tabindex="0">
+            <div class="container">
+                <div class="department-hero__faculty">
+                    <h2>교수진</h2>
+                    <p class="department-hero__faculty-intro">실전 비즈니스 경험과 데이터 전문성을 갖춘 교수진이 경영 전략 수립과 창업 역량을 함께 이끕니다.</p>
+                    <div class="department-hero__faculty-list">
+                        <article class="faculty-card">
+                            <figure class="faculty-card__photo">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMTYwIj4KICA8cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgcng9IjMyIiBmaWxsPSIjZmZlY2U4Ii8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSI2MCIgcj0iMzYiIGZpbGw9IiNmZjdiNWEiLz4KICA8cGF0aCBkPSJNODAgOTZjLTMyIDAtNTggMjAtNTggNDZoMTE2YzAtMjYtMjYtNDYtNTgtNDZ6IiBmaWxsPSIjOGIzMjFmIiBvcGFjaXR5PSIwLjE4Ii8+CiAgPHBhdGggZD0iTTgwIDk2Yy0yNCAwLTQ0IDE0LTUxIDM0aDEwMmMtNy0yMC0yNy0zNC01MS0zNHoiIGZpbGw9IiNmZjdiNWEiIG9wYWNpdHk9IjAuMjgiLz4KPC9zdmc+Cg==" alt="김도현 교수의 프로필 사진" loading="lazy" />
+                            </figure>
+                            <div class="faculty-card__body">
+                                <p class="faculty-card__name">김도현 교수</p>
+                                <p class="faculty-card__role">전략경영</p>
+                                <p class="faculty-card__focus">디지털 전환 전략과 스타트업 멘토링을 중심으로 실무형 프로젝트를 지도합니다.</p>
+                            </div>
+                        </article>
+                        <article class="faculty-card">
+                            <figure class="faculty-card__photo">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMTYwIj4KICA8cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgcng9IjMyIiBmaWxsPSIjZTlmOGY1Ii8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSI2MCIgcj0iMzYiIGZpbGw9IiMxMmI4ODYiLz4KICA8cGF0aCBkPSJNODAgOTZjLTMyIDAtNTggMjAtNTggNDZoMTE2YzAtMjYtMjYtNDYtNTgtNDZ6IiBmaWxsPSIjMGI1MTNkIiBvcGFjaXR5PSIwLjE4Ii8+CiAgPHBhdGggZD0iTTgwIDk2Yy0yNCAwLTQ0IDE0LTUxIDM0aDEwMmMtNy0yMC0yNy0zNC01MS0zNHoiIGZpbGw9IiMxMmI4ODYiIG9wYWNpdHk9IjAuMjgiLz4KPC9zdmc+Cg==" alt="박서윤 교수의 프로필 사진" loading="lazy" />
+                            </figure>
+                            <div class="faculty-card__body">
+                                <p class="faculty-card__name">박서윤 교수</p>
+                                <p class="faculty-card__role">재무 · 핀테크</p>
+                                <p class="faculty-card__focus">데이터 기반 투자 분석과 ESG 금융 전략을 연구하며 학생 창업을 지원합니다.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div data-include="assets/partials/footer.html"></div>
+
+    <script src="assets/js/includes.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
