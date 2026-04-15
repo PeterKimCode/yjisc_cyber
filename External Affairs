@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GTCC사이버대학 대외협력부총장인사말 | GTCC</title>
+    <title>GTCC사이버대학 대외협력 부총장인사말 | GTCC</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +22,13 @@
         <section class="page-body">
             <div class="container container--profile">
                 <div class="profile-layout">
-                    <aside class="profile-card" aria-label="GTCC사이버대학부총장소개">
+                    <aside class="profile-card" aria-label="GTCC사이버대학 대외협력부총장소개">
                         <figure class="profile-card__photo">
-                            <img src="assets/picture/이영철.jpg"/>
+                            <img src="assets/picture/방극천.jpg"/>
                         </figure>
                         <div class="profile-card__body">
                             <p class="profile-card__role">GTCC사이버대학 대외협력부총장</p>
-                            <p class="profile-card__name">이영철 박사</p>
+                            <p class="profile-card__name">방극천 박사</p>
                             <p class="profile-card__quote">“학생의 성장을 돕는 가장 따뜻한 디지털 캠퍼스를 만들겠습니다.”</p>
                         </div>
                         <div class="profile-card__meta">
@@ -39,11 +39,8 @@
                                 </div>
                                 <div>
                                     <dt>주요 이력</dt>
-                                    <dd>GIC (Global Innovation Center) 부회장</dd>
-                                    <dd>ISO ESG 국제심사원 및 평가위원</dd>
-                                    <dd>국제ESG경영학회 이사</dd>
-                                    <dd>포세이돈 컨소시엄 설립자 및 상임대표</dd>
-                                </div>
+                                    <dd>KBS아카데비 교수</dd>
+                                  </div>
                             </dl>
                         </div>
                     </aside>
@@ -52,7 +49,7 @@
     <!-- 인사말 영역 -->
     <h2>GTCC 사이버대학 대외협력 부총장 인사말</h2>
     <p>
-        반갑습니다. GTCC 사이버대학 대외협력 부총장 이영철 박사입니다.
+        반갑습니다. GTCC 사이버대학 대외협력 부총장 방극천 박사입니다.
     </p>
     <p>
         GTCC는 글로벌 인재를 양성하는 국제 교육기관으로서, 급변하는 세계 속에서 학생들이 미래를 주도할 수 있는 역량을 키우는 것을 최우선 가치로 두고 있습니다.
