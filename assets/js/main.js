@@ -246,6 +246,249 @@ const initialize = () => {
         });
     };
 
+    const setupModernShell = () => {
+        const header = document.querySelector('.site-header');
+        const nav = document.querySelector('.main-nav');
+        const headerContainer = header ? header.querySelector('.container') : null;
+
+        if (header && nav && headerContainer && !header.querySelector('[data-mobile-menu-toggle]')) {
+            header.classList.add('site-header--modern');
+            nav.id = nav.id || 'primary-navigation';
+
+            const toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'mobile-menu-toggle';
+            toggle.setAttribute('data-mobile-menu-toggle', '');
+            toggle.setAttribute('aria-controls', nav.id);
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.innerHTML =
+                '<span class="mobile-menu-toggle__bar"></span>' +
+                '<span class="mobile-menu-toggle__bar"></span>' +
+                '<span class="mobile-menu-toggle__bar"></span>' +
+                '<span class="sr-only">메뉴</span>';
+
+            headerContainer.insertBefore(toggle, nav);
+
+            const closeMenu = () => {
+                document.body.classList.remove('is-mobile-menu-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            };
+
+            toggle.addEventListener('click', () => {
+                const isOpen = document.body.classList.toggle('is-mobile-menu-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            nav.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target instanceof HTMLElement && target.closest('a')) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 860) {
+                    closeMenu();
+                }
+            });
+        }
+
+        const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        document.body.classList.toggle('is-home-page', pageName === '' || pageName === 'index.html');
+
+        const pageGroups = [
+            ['is-admissions-page', /admission|enrollment|course-|readmission|transfer|graduation|leave-|withdrawal|double-minor/],
+            ['is-scholarship-page', /scholarship/],
+            ['is-program-page', /program|college-|graduate-|lifelong-|medicine|convergence|academics/],
+            ['is-news-page', /news|notice|event|press|newsletter|media/],
+        ];
+
+        pageGroups.forEach(([className, matcher]) => {
+            document.body.classList.toggle(className, matcher.test(pageName));
+        });
+    };
+
+    const setupMobileConsultBar = () => {
+        if (document.querySelector('[data-mobile-consult-bar]')) {
+            return;
+        }
+
+        const phoneLink = document.querySelector('a[href^="tel:"]');
+        const kakaoLink =
+            Array.from(document.querySelectorAll('a[href]')).find((link) =>
+                /open\.kakao\.com/i.test(link.getAttribute('href') || '')
+            ) || null;
+
+        if (!phoneLink && !kakaoLink) {
+            return;
+        }
+
+        const bar = document.createElement('div');
+        bar.className = 'mobile-consult-bar';
+        bar.setAttribute('data-mobile-consult-bar', '');
+        bar.setAttribute('aria-label', '모바일 빠른 상담');
+
+        if (phoneLink) {
+            const phone = document.createElement('a');
+            phone.href = phoneLink.getAttribute('href') || '#';
+            phone.className = 'mobile-consult-bar__link mobile-consult-bar__link--phone';
+            phone.textContent = '전화 상담';
+            bar.appendChild(phone);
+        }
+
+        if (kakaoLink) {
+            const kakao = document.createElement('a');
+            kakao.href = kakaoLink.getAttribute('href') || '#';
+            kakao.className = 'mobile-consult-bar__link mobile-consult-bar__link--primary';
+            kakao.textContent = '카카오 상담';
+            if (kakaoLink.getAttribute('target')) {
+                kakao.target = kakaoLink.getAttribute('target');
+            }
+            kakao.rel = 'noopener noreferrer';
+            bar.appendChild(kakao);
+        }
+
+        document.body.appendChild(bar);
+    };
+
+    const setupHomeConversionLayout = () => {
+        if (!document.body.classList.contains('is-home-page')) {
+            return;
+        }
+
+        const main = document.querySelector('main');
+        const hero = document.querySelector('.hero-slider');
+        if (!main || !hero) {
+            return;
+        }
+
+        document.body.classList.add('home-conversion-layout');
+
+        const phoneHref = document.querySelector('a[href^="tel:"]')?.getAttribute('href') || 'tel:010-5909-9320';
+        const kakaoHref =
+            Array.from(document.querySelectorAll('a[href]')).find((link) =>
+                /open\.kakao\.com/i.test(link.getAttribute('href') || '')
+            )?.getAttribute('href') || 'https://open.kakao.com/o/pfJrLjVh';
+
+        const activeHeroContainer = hero.querySelector('[data-hero-slide]:first-child .container');
+        if (activeHeroContainer && !activeHeroContainer.querySelector('.hero-consult-panel')) {
+            const panel = document.createElement('aside');
+            panel.className = 'hero-consult-panel';
+            panel.setAttribute('aria-label', '빠른 상담 정보');
+            panel.innerHTML =
+                '<span>상담 정보</span>' +
+                '<strong>010-5909-9320</strong>' +
+                '<small>평일 09:00 - 18:00</small>' +
+                '<hr>' +
+                '<strong>상담 분야</strong>' +
+                '<small>입학 상담, 장학, 학과 선택, 학습 상담</small>';
+            activeHeroContainer.appendChild(panel);
+        }
+
+        if (!document.querySelector('[data-generated-admissions-strip]')) {
+            const admissions = document.createElement('section');
+            admissions.className = 'section admissions-strip generated-conversion-section';
+            admissions.setAttribute('data-generated-admissions-strip', '');
+            admissions.innerHTML =
+                '<div class="container">' +
+                '<div class="conversion-card conversion-card--wide">' +
+                '<div><span class="conversion-eyebrow">Admissions</span>' +
+                '<h2>입학 준비, 먼저 상담으로 확인하세요</h2>' +
+                '<p>지원 가능 과정, 제출 서류, 장학 혜택, 학습 방식까지 한 번에 안내받을 수 있습니다.</p></div>' +
+                '<div class="conversion-actions">' +
+                `<a class="btn primary" href="${kakaoHref}" target="_blank" rel="noopener noreferrer">입학 상담</a>` +
+                `<a class="btn ghost" href="${phoneHref}">전화 상담</a>` +
+                '</div></div></div>';
+            hero.insertAdjacentElement('afterend', admissions);
+        }
+
+        if (!document.querySelector('[data-generated-interest-card]')) {
+            const interest = document.createElement('section');
+            interest.className = 'section interest-consult generated-conversion-section';
+            interest.setAttribute('data-generated-interest-card', '');
+            interest.innerHTML =
+                '<div class="container">' +
+                '<div class="conversion-card conversion-card--split">' +
+                '<div><span class="conversion-eyebrow">Quick Match</span>' +
+                '<h2>관심 과정을 선택하면 상담 방향을 빠르게 잡을 수 있습니다</h2>' +
+                '<p>아직 과정이 정해지지 않아도 괜찮습니다. 관심 분야만 선택해도 필요한 준비 순서를 안내받을 수 있습니다.</p></div>' +
+                '<form class="interest-form">' +
+                '<label>관심 과정<select aria-label="관심 과정 선택"><option>학위 과정</option><option>학과 과정</option><option>장학 혜택</option><option>평생교육 과정</option><option>국제 자격 과정</option></select></label>' +
+                `<a class="btn primary" href="${kakaoHref}" target="_blank" rel="noopener noreferrer">입학 상담</a>` +
+                `<a class="btn ghost" href="${phoneHref}">전화 상담</a>` +
+                '</form></div></div>';
+
+            const afterAdmissions = document.querySelector('[data-generated-admissions-strip]');
+            (afterAdmissions || hero).insertAdjacentElement('afterend', interest);
+        }
+
+        const quickLinks = document.querySelector('.quick-links');
+        const interestCard = document.querySelector('[data-generated-interest-card]');
+        if (quickLinks && interestCard && quickLinks.previousElementSibling !== interestCard) {
+            interestCard.insertAdjacentElement('afterend', quickLinks);
+        }
+
+        const programs = document.querySelector('#programs');
+        if (programs && quickLinks && programs.previousElementSibling !== quickLinks) {
+            quickLinks.insertAdjacentElement('afterend', programs);
+        }
+
+        const support = document.querySelector('#support');
+        if (support && programs && support.previousElementSibling !== programs) {
+            programs.insertAdjacentElement('afterend', support);
+        }
+
+        if (!document.querySelector('[data-generated-scholarship-strip]')) {
+            const scholarship = document.createElement('section');
+            scholarship.className = 'section scholarship-strip generated-conversion-section';
+            scholarship.setAttribute('data-generated-scholarship-strip', '');
+            scholarship.innerHTML =
+                '<div class="container split">' +
+                '<div><span class="conversion-eyebrow">Scholarship</span>' +
+                '<h2>학습 비용은 장학 혜택과 함께 확인하세요</h2>' +
+                '<p>과정 선택 전 장학 가능 여부를 함께 확인하면 학습 계획을 더 현실적으로 세울 수 있습니다.</p>' +
+                '<div class="hero-actions">' +
+                '<a class="btn primary" href="scholarship-benefits.html">장학 혜택 보기</a>' +
+                `<a class="btn ghost" href="${kakaoHref}" target="_blank" rel="noopener noreferrer">입학 상담</a>` +
+                '</div></div>' +
+                '<div class="scholarship-mini-grid">' +
+                '<article><strong>재직자 상담</strong><span>일과 학습을 병행하는 학습자 혜택 확인</span></article>' +
+                '<article><strong>편입생 상담</strong><span>보유 학습 이력에 맞춘 비용 계획</span></article>' +
+                '<article><strong>과정별 안내</strong><span>학위, 평생교육, 자격 과정별 기준</span></article>' +
+                '<article><strong>신청 절차</strong><span>필요 서류와 상담 순서 확인</span></article>' +
+                '</div></div>';
+
+            if (support) {
+                support.insertAdjacentElement('beforebegin', scholarship);
+            } else if (programs) {
+                programs.insertAdjacentElement('afterend', scholarship);
+            }
+        }
+
+        const sections = Array.from(main.querySelectorAll(':scope > section')).filter(
+            (section) => !section.classList.contains('hero-slider')
+        );
+        const mediaSection = sections.find((section) => section.querySelector('[data-video-slider], iframe[src*="youtube"]'));
+        const scholarshipSection =
+            sections.find((section) => /scholarship|장학/i.test(section.textContent || '')) ||
+            document.querySelector('#support');
+        if (mediaSection) {
+            mediaSection.classList.add('home-media-section');
+        }
+        if (scholarshipSection) {
+            scholarshipSection.classList.add('home-scholarship-section');
+        }
+    };
+
+    setupModernShell();
+    setupMobileConsultBar();
+    setupHomeConversionLayout();
     setupMegaMenuForTouch();
     setupAdmissionConsultationForm();
 
@@ -310,6 +553,11 @@ const initialize = () => {
 
             const startAutoplay = () => {
                 if (slides.length < 2) {
+                    return;
+                }
+
+                if (document.body.classList.contains('is-home-page')) {
+                    stopAutoplay();
                     return;
                 }
 
@@ -806,7 +1054,7 @@ const initialize = () => {
             return;
         }
 
-        const includedLanguages = 'en,zh-CN,zh-TW,ja,th,vi,tl,fr,de,id,ru,es';
+        const includedLanguages = 'ko,en,zh-CN,zh-TW,ja,th,vi,tl,fr,de,id,ru,es';
 
         const instantiateWidget = () => {
             if (container.dataset.translateInitialized === 'true') {
@@ -859,49 +1107,10 @@ const initialize = () => {
 
     initializeGoogleTranslate();
 
-    const darkModeToggle = ensureDarkModeToggle();
-    if (darkModeToggle) {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const storedTheme = getStoredTheme();
-        const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-
-        const updateDarkToggleLabel = () => {
-            const isDark = document.body.classList.contains('theme-dark');
-            darkModeToggle.setAttribute('aria-pressed', String(isDark));
-            darkModeToggle.innerHTML =
-                `<span class="dark-mode-toggle__icon" aria-hidden="true">${isDark ? '☀️' : '🌙'}</span>` +
-                `<span class="dark-mode-toggle__label">${isDark ? '라이트 모드' : '다크 모드'}</span>`;
-        };
-
-        applyTheme(initialTheme);
-        updateDarkToggleLabel();
-
-        darkModeToggle.addEventListener('click', () => {
-            const isDark = document.body.classList.contains('theme-dark');
-            const nextTheme = isDark ? 'light' : 'dark';
-            applyTheme(nextTheme);
-            storeTheme(nextTheme);
-            updateDarkToggleLabel();
-        });
-
-        if (window.matchMedia) {
-            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            const handleMediaChange = (event) => {
-                if (getStoredTheme()) {
-                    return;
-                }
-
-                applyTheme(event.matches ? 'dark' : 'light');
-                updateDarkToggleLabel();
-            };
-
-            if (typeof mediaQuery.addEventListener === 'function') {
-                mediaQuery.addEventListener('change', handleMediaChange);
-            } else if (typeof mediaQuery.addListener === 'function') {
-                mediaQuery.addListener(handleMediaChange);
-            }
-        }
-    }
+    applyTheme('light');
+    document.querySelectorAll('[data-theme-toggle], .dark-mode-toggle').forEach((toggle) => {
+        toggle.remove();
+    });
 
     const scrollButton = ensureScrollButton();
     if (scrollButton) {
@@ -917,6 +1126,46 @@ const initialize = () => {
         window.addEventListener('scroll', toggleVisibility, { passive: true });
         toggleVisibility();
     }
+
+    const setupModernReveal = () => {
+        const candidates = document.querySelectorAll(
+            '.quick-item, .highlight-card, .news-card, .guide-card, .stat-card, .resource-card, .detail-card, .program-card, .support-card, .contact-card, .info-card, .admission-card, .scholarship-card, .benefit-card, .process-card, .timeline-card, .profile-card, .profile-content, .info-block, .info-aside, .department-hero, .department-section, .department-card, .career-card, .faculty-card, .page-body, .page-detail, .page-hero, .section-heading, .support-cta, .image-slider, .video-slider'
+        );
+
+        if (!candidates.length) {
+            return;
+        }
+
+        candidates.forEach((element) => {
+            element.classList.add('modern-reveal');
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            candidates.forEach((element) => element.classList.add('is-revealed'));
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                });
+            },
+            {
+                rootMargin: '0px 0px -8% 0px',
+                threshold: 0.12,
+            }
+        );
+
+        candidates.forEach((element) => observer.observe(element));
+    };
+
+    setupModernReveal();
 };
 
 const runWhenReady = () => {
