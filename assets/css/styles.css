@@ -997,25 +997,24 @@ img {
 
 .google-translate {
     position: relative;
-    min-height: 46px;
-    border-radius: 999px;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 255, 0.96));
-    border: 1px solid rgba(198, 213, 236, 0.95);
-    box-shadow: 0 12px 28px rgba(18, 34, 66, 0.10);
+    min-height: 42px;
+    border-radius: 8px;
+    background: #07111f;
+    border: 1px solid rgba(148, 163, 184, 0.36);
+    box-shadow: 0 14px 28px rgba(7, 17, 31, 0.20);
     overflow: hidden;
 }
 
 .google-translate::before {
-    content: "Language";
+    content: "文";
     display: inline-flex;
     align-items: center;
-    min-height: 100%;
-    padding-left: 1rem;
-    color: #1d4ed8;
-    font-size: 0.72rem;
+    justify-content: center;
+    width: 2rem;
+    min-height: 42px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
     font-weight: 800;
-    letter-spacing: 0;
     pointer-events: none;
 }
 
@@ -1024,10 +1023,10 @@ img {
     position: absolute;
     right: 0.9rem;
     top: 50%;
-    width: 0.48rem;
-    height: 0.48rem;
-    border-right: 2px solid #1d4ed8;
-    border-bottom: 2px solid #1d4ed8;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-right: 2px solid rgba(255, 255, 255, 0.82);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.82);
     transform: translateY(-65%) rotate(45deg);
     pointer-events: none;
 }
@@ -1043,15 +1042,15 @@ img {
 }
 
 .google-translate .goog-te-combo {
-    min-width: 8.8rem !important;
-    min-height: 44px !important;
+    min-width: 7.4rem !important;
+    min-height: 42px !important;
     margin: 0 !important;
-    padding: 0 2.1rem 0 0.55rem !important;
+    padding: 0 1.85rem 0 0.15rem !important;
     border: 0 !important;
     border-radius: 0 !important;
     background: transparent !important;
-    color: #101828 !important;
-    font-size: 0.9rem !important;
+    color: #ffffff !important;
+    font-size: 0.86rem !important;
     font-weight: 800 !important;
     line-height: 1 !important;
     appearance: none !important;
@@ -1059,13 +1058,19 @@ img {
     box-shadow: none !important;
 }
 
+.google-translate .goog-te-combo option {
+    background: #07111f;
+    color: #ffffff;
+    font-weight: 700;
+}
+
 .google-translate .goog-te-combo:focus {
     outline: none !important;
 }
 
 .google-translate:focus-within {
-    border-color: rgba(37, 99, 235, 0.58);
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 14px 30px rgba(18, 34, 66, 0.12);
+    border-color: rgba(96, 165, 250, 0.72);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16), 0 14px 28px rgba(7, 17, 31, 0.24);
 }
 
 .btn {
@@ -3857,24 +3862,21 @@ body {
     }
 
     .site-header .google-translate {
-        min-height: 44px;
-        max-width: 178px;
+        min-height: 42px;
+        max-width: 142px;
+        border-radius: 8px;
     }
 
     .site-header .google-translate::before {
-        content: "";
-        width: 2.25rem;
+        content: "文";
+        width: 1.9rem;
+        min-height: 42px;
         padding-left: 0;
-        background:
-            radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.16), rgba(37, 99, 235, 0.05));
+        background: transparent;
     }
 
     .site-header .google-translate::after {
-        right: 0.72rem;
-    }
-
-    .site-header .google-translate::before {
-        flex: 0 0 2.25rem;
+        right: 0.68rem;
     }
 
     .site-header .google-translate::after {
@@ -3883,11 +3885,11 @@ body {
     }
 
     .site-header .google-translate .goog-te-combo {
-        min-width: 8.25rem !important;
+        min-width: 6.6rem !important;
         min-height: 42px !important;
-        padding-left: 0.55rem !important;
-        padding-right: 1.8rem !important;
-        font-size: 0.86rem !important;
+        padding-left: 0.08rem !important;
+        padding-right: 1.6rem !important;
+        font-size: 0.82rem !important;
     }
 
     .logo__text {
