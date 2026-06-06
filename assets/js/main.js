@@ -269,9 +269,59 @@ const initialize = () => {
 
             headerContainer.insertBefore(toggle, nav);
 
+            const mobileSubmenuSelectors = [
+                '.mega-menu',
+                '.mega-columns',
+                '.mega-column',
+                '.mega-section',
+                '.mega-section ul',
+                '.mega-submenu',
+                '.mega-section li',
+                '.mega-section a',
+                '.mega-heading'
+            ];
+
+            const forceMobileSubmenus = (isOpen) => {
+                const elements = nav.querySelectorAll(mobileSubmenuSelectors.join(','));
+                elements.forEach((element) => {
+                    if (!(element instanceof HTMLElement)) {
+                        return;
+                    }
+
+                    if (!isOpen) {
+                        element.removeAttribute('style');
+                        return;
+                    }
+
+                    element.style.visibility = 'visible';
+                    element.style.opacity = '1';
+                    element.style.maxHeight = 'none';
+                    element.style.height = 'auto';
+                    element.style.overflow = 'visible';
+                    element.style.pointerEvents = 'auto';
+
+                    if (element.matches('.mega-menu')) {
+                        element.style.display = 'block';
+                        element.style.position = 'static';
+                        element.style.width = '100%';
+                        element.style.padding = '1rem';
+                        element.style.marginTop = '0.45rem';
+                    } else if (element.matches('.mega-columns, .mega-column, .mega-section, .mega-section ul, .mega-submenu')) {
+                        element.style.display = 'grid';
+                    } else if (element.matches('.mega-section a, .mega-heading')) {
+                        element.style.display = 'block';
+                        element.style.whiteSpace = 'normal';
+                        element.style.textOverflow = 'clip';
+                    } else {
+                        element.style.display = 'block';
+                    }
+                });
+            };
+
             const closeMenu = () => {
                 document.body.classList.remove('is-mobile-menu-open');
                 toggle.setAttribute('aria-expanded', 'false');
+                forceMobileSubmenus(false);
                 nav.querySelectorAll('li.has-mega').forEach((item) => {
                     item.classList.remove('is-open');
                     item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
@@ -285,11 +335,25 @@ const initialize = () => {
                     item.classList.toggle('is-open', isOpen);
                     item.querySelector(':scope > a')?.setAttribute('aria-expanded', String(isOpen));
                 });
+                forceMobileSubmenus(isOpen);
             });
 
             nav.addEventListener('click', (event) => {
                 const target = event.target;
-                if (target instanceof HTMLElement && target.closest('a')) {
+                if (!(target instanceof HTMLElement)) {
+                    return;
+                }
+
+                const link = target.closest('a');
+                const isTopLevelMegaLink =
+                    link instanceof HTMLElement && link.parentElement?.classList.contains('has-mega');
+                if (document.body.classList.contains('is-mobile-menu-open') && isTopLevelMegaLink) {
+                    event.preventDefault();
+                    forceMobileSubmenus(true);
+                    return;
+                }
+
+                if (link) {
                     closeMenu();
                 }
             });
