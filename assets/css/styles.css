@@ -4055,13 +4055,30 @@ body.theme-dark {
 
 @media (max-width: 860px) {
     .mega-menu {
-        opacity: 0;
+        opacity: 1;
     }
 
+    .is-mobile-menu-open .main-nav {
+        max-height: calc(100vh - 96px) !important;
+    }
+
+    .is-mobile-menu-open .main-nav .mega-menu,
+    .is-mobile-menu-open .main-nav .has-mega .mega-menu,
     .has-mega:hover .mega-menu,
     .has-mega:focus-within .mega-menu,
     .has-mega.is-open .mega-menu {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-height: none !important;
+        height: auto !important;
+        padding: 1rem !important;
+        margin-top: 0.45rem !important;
         opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+        transform: none !important;
+        pointer-events: auto !important;
     }
 
     .is-home-page .hero-slider .hero {

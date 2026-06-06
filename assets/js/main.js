@@ -272,11 +272,19 @@ const initialize = () => {
             const closeMenu = () => {
                 document.body.classList.remove('is-mobile-menu-open');
                 toggle.setAttribute('aria-expanded', 'false');
+                nav.querySelectorAll('li.has-mega').forEach((item) => {
+                    item.classList.remove('is-open');
+                    item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
+                });
             };
 
             toggle.addEventListener('click', () => {
                 const isOpen = document.body.classList.toggle('is-mobile-menu-open');
                 toggle.setAttribute('aria-expanded', String(isOpen));
+                nav.querySelectorAll('li.has-mega').forEach((item) => {
+                    item.classList.toggle('is-open', isOpen);
+                    item.querySelector(':scope > a')?.setAttribute('aria-expanded', String(isOpen));
+                });
             });
 
             nav.addEventListener('click', (event) => {
