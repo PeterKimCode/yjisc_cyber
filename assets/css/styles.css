@@ -5449,3 +5449,106 @@ form.support-cta .btn,
         font-size: 0.8rem !important;
     }
 }
+
+/* Header language control rollback: compact dark control with balanced side padding. */
+.site-header .google-translate {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 0.5rem;
+    gap: 0.34rem;
+    border: 1px solid rgba(148, 163, 184, 0.34);
+    border-radius: 9px;
+    background: #0b1220 !important;
+    box-shadow: 0 12px 24px rgba(7, 17, 31, 0.18);
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.site-header .google-translate::before {
+    content: "文";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    min-height: 34px;
+    color: rgba(255, 255, 255, 0.88);
+    background: transparent;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.site-header .google-translate::after {
+    right: 1.05rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-color: rgba(255, 255, 255, 0.88);
+}
+
+.site-header .google-translate .goog-te-combo,
+.site-header .google-translate select.goog-te-combo,
+#google_translate_element select {
+    width: 6.15rem !important;
+    min-width: 0 !important;
+    max-width: 6.15rem !important;
+    min-height: 34px !important;
+    margin: 0 !important;
+    padding: 0 1.55rem 0 0.55rem !important;
+    border: 1px solid rgba(148, 163, 184, 0.38) !important;
+    border-radius: 7px !important;
+    background: #070d19 !important;
+    color: #ffffff !important;
+    color-scheme: dark;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    cursor: pointer !important;
+}
+
+.site-header .google-translate .goog-te-combo option {
+    background: #070d19 !important;
+    color: #ffffff !important;
+}
+
+.site-header .google-translate:focus-within {
+    border-color: rgba(147, 197, 253, 0.72);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14), 0 12px 24px rgba(7, 17, 31, 0.22);
+}
+
+@media (max-width: 520px) {
+    .site-header .google-translate {
+        min-height: 46px;
+        padding-inline: 0.46rem;
+        gap: 0.28rem;
+    }
+
+    .site-header .google-translate::before {
+        content: "文";
+        width: 1.12rem;
+        min-height: 32px;
+        font-size: 0.72rem;
+    }
+
+    .site-header .google-translate::after {
+        right: 0.92rem;
+    }
+
+    .site-header .google-translate .goog-te-combo,
+    .site-header .google-translate select.goog-te-combo,
+    #google_translate_element select {
+        width: 5.8rem !important;
+        max-width: 5.8rem !important;
+        min-height: 32px !important;
+        padding-left: 0.48rem !important;
+        padding-right: 1.42rem !important;
+        font-size: 0.78rem !important;
+    }
+}
