@@ -4081,6 +4081,74 @@ body.theme-dark {
         pointer-events: auto !important;
     }
 
+    .is-mobile-menu-open .main-nav .mega-columns,
+    .is-mobile-menu-open .main-nav .mega-column {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+
+    .is-mobile-menu-open .main-nav .mega-section {
+        display: grid !important;
+        gap: 0.65rem !important;
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0.95rem !important;
+        border-radius: 16px !important;
+        background: #f7faff !important;
+        border: 1px solid rgba(198, 213, 236, 0.92) !important;
+        box-shadow: none !important;
+    }
+
+    .is-mobile-menu-open .main-nav .mega-section h3,
+    .is-mobile-menu-open .main-nav .mega-heading {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 0 0.55rem !important;
+        border-bottom: 1px solid rgba(37, 99, 235, 0.18) !important;
+        color: #07111f !important;
+        font-size: 1rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .is-mobile-menu-open .main-nav .mega-section ul,
+    .is-mobile-menu-open .main-nav .mega-submenu {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.45rem !important;
+        max-height: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+    }
+
+    .is-mobile-menu-open .main-nav .mega-section li {
+        display: block !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .is-mobile-menu-open .main-nav .mega-section a,
+    .is-mobile-menu-open .main-nav .mega-submenu a {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.58rem 0.7rem !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+        color: #344054 !important;
+        font-size: 0.96rem !important;
+        font-weight: 700 !important;
+        line-height: 1.35 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
+
     .is-home-page .hero-slider .hero {
         min-height: 440px;
     }
