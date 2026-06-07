@@ -396,6 +396,7 @@ const initialize = () => {
             ['is-program-page', /program|college-|graduate-|lifelong-|medicine|convergence|academics/],
             ['is-news-page', /news|notice|event|press|newsletter|media/],
             ['is-support-page', /support/],
+            ['is-clubs-page', /campus-clubs/],
         ];
 
         pageGroups.forEach(([className, matcher]) => {
