@@ -251,6 +251,22 @@ const initialize = () => {
         const nav = document.querySelector('.main-nav');
         const headerContainer = header ? header.querySelector('.container') : null;
 
+        if (nav) {
+            nav.querySelectorAll('.mega-menu').forEach((menu) => {
+                const columns = Array.from(menu.querySelectorAll(':scope > .mega-columns > .mega-column'));
+                columns.forEach((column) => {
+                    if (!column.querySelector('.mega-section, a')) {
+                        column.remove();
+                    }
+                });
+
+                const activeColumns = menu.querySelectorAll(':scope > .mega-columns > .mega-column').length;
+                if (activeColumns > 0 && activeColumns <= 4) {
+                    menu.dataset.megaColumns = String(activeColumns);
+                }
+            });
+        }
+
         if (header && nav && headerContainer && !header.querySelector('[data-mobile-menu-toggle]')) {
             header.classList.add('site-header--modern');
             nav.id = nav.id || 'primary-navigation';
@@ -379,6 +395,7 @@ const initialize = () => {
             ['is-scholarship-page', /scholarship/],
             ['is-program-page', /program|college-|graduate-|lifelong-|medicine|convergence|academics/],
             ['is-news-page', /news|notice|event|press|newsletter|media/],
+            ['is-support-page', /support/],
         ];
 
         pageGroups.forEach(([className, matcher]) => {

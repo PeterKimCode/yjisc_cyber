@@ -5552,3 +5552,170 @@ form.support-cta .btn,
         font-size: 0.78rem !important;
     }
 }
+
+/* Menu and support/news page polish: remove empty mega space and match the GTCC blue subpage hero. */
+@media (min-width: 861px) {
+    .mega-menu[data-mega-columns="1"] {
+        width: min(320px, 90vw) !important;
+    }
+
+    .mega-menu[data-mega-columns="2"] {
+        width: min(590px, 90vw) !important;
+    }
+
+    .mega-menu[data-mega-columns="3"] {
+        width: min(850px, 90vw) !important;
+    }
+
+    .mega-menu[data-mega-columns="4"] {
+        width: min(1080px, 92vw) !important;
+    }
+
+    .mega-menu[data-mega-columns="1"] .mega-columns {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .mega-menu[data-mega-columns="2"] .mega-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mega-menu[data-mega-columns="3"] .mega-columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mega-menu[data-mega-columns="4"] .mega-columns {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.is-support-page main,
+.is-news-page main {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(37, 99, 235, 0.08), transparent 26rem),
+        #eef4ff;
+}
+
+.is-support-page main > .hero,
+.is-news-page main > .hero {
+    position: relative;
+    min-height: auto;
+    padding-block: clamp(4.5rem, 8vw, 7rem) !important;
+    border-radius: 0 0 26px 26px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 86% 72%, rgba(255, 255, 255, 0.14), transparent 17rem),
+        linear-gradient(135deg, #07111f 0%, #123a78 56%, #1d4ed8 100%) !important;
+    color: #ffffff;
+}
+
+.is-support-page main > .hero::after,
+.is-news-page main > .hero::after {
+    content: "";
+    position: absolute;
+    right: -7rem;
+    bottom: -10rem;
+    width: min(44vw, 520px);
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.10);
+    pointer-events: none;
+}
+
+.is-support-page main > .hero .container,
+.is-news-page main > .hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.is-support-page main > .hero h1,
+.is-support-page main > .hero p,
+.is-news-page main > .hero h1,
+.is-news-page main > .hero p {
+    color: #ffffff !important;
+}
+
+.is-support-page main > .hero h1,
+.is-news-page main > .hero h1 {
+    max-width: 760px;
+    font-size: clamp(3rem, 6.6vw, 5.4rem);
+    line-height: 1.08;
+    letter-spacing: 0;
+}
+
+.is-support-page main > .hero p,
+.is-news-page main > .hero p {
+    max-width: 660px;
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+    line-height: 1.75;
+}
+
+.is-support-page main > .hero .badge,
+.is-news-page main > .hero .badge {
+    display: inline-flex;
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.16) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.28) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.is-support-page main > .hero .floating-card,
+.is-news-page main > .hero .floating-card {
+    width: 100%;
+    max-width: 360px;
+    padding: clamp(1.5rem, 3vw, 2rem) !important;
+    border-radius: 22px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    color: #101828 !important;
+    border: 1px solid rgba(255, 255, 255, 0.64) !important;
+    box-shadow: 0 22px 52px rgba(7, 17, 31, 0.24) !important;
+}
+
+.is-support-page main > .hero .floating-card *,
+.is-news-page main > .hero .floating-card * {
+    color: #101828 !important;
+}
+
+.is-support-page main > .section,
+.is-news-page main > .section {
+    background: transparent !important;
+}
+
+.is-support-page .support .container,
+.is-news-page .news .container,
+.is-news-page #newsletter > .container,
+.is-support-page #coaching > .container,
+.is-support-page #career > .container,
+.is-support-page #guide > .container {
+    padding: clamp(1.35rem, 3vw, 2.25rem);
+    border: 1px solid rgba(198, 213, 236, 0.9);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 46px rgba(18, 34, 66, 0.08);
+}
+
+.is-support-page .support-list li,
+.is-support-page .program-card,
+.is-news-page .news-card,
+.is-news-page .support-cta {
+    border-radius: 18px !important;
+    border: 1px solid rgba(198, 213, 236, 0.92) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%) !important;
+    box-shadow: 0 12px 30px rgba(18, 34, 66, 0.07) !important;
+}
+
+@media (max-width: 860px) {
+    .is-support-page main > .hero .container,
+    .is-news-page main > .hero .container {
+        grid-template-columns: 1fr;
+    }
+
+    .is-support-page main > .hero h1,
+    .is-news-page main > .hero h1 {
+        font-size: clamp(2.4rem, 12vw, 4rem);
+    }
+}
